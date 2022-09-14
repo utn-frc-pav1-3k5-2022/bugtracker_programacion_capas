@@ -11,7 +11,7 @@
 
 **![](https://lh5.googleusercontent.com/o76z7uQg0dRkDHxpMdMwBfyJOb6fftiCzMah3wk5X94-oiaYaROi1ohtM_mEuWXW_87Jo9Qp3aCJR213Y4jMcN6SlPXc2dlQYDBVPmfwkE0_wAJaAljLUjTecL49Jzli40jmfV1V)**
 
-## 2. Patrón DAO
+## 2. Patrón Data Access Object (DAO)
 
 Dado lo anterior, el patrón DAO propone separar por completo la lógica de negocio de la lógica para acceder a los datos, de esta forma, el DAO proporcionará los métodos necesarios para insertar, actualizar, borrar y consultar la información; por otra parte, la capa de negocio solo se preocupa por lógica de negocio y utiliza el DAO para interactuar con la fuente de datos.
 
