@@ -1,7 +1,7 @@
 # BugTracker - Programación en Capas
 
 
-### 3.1. Programación en 3 Capas 
+## 1. Programación en 3 Capas 
 
 - **Presentación (GUILayer):** Mediante la capa de presentación se separa la interacción del usuario respecto a la lógica de negocio.
 - **Lógica (BusinessLayer):** La capa de negocio expone la lógica necesaria a la capa de presentación para que el usuario, a través de la interfaz, interactúe con las funcionalidades de la aplicación.
@@ -11,16 +11,16 @@
 
 **![](https://lh5.googleusercontent.com/o76z7uQg0dRkDHxpMdMwBfyJOb6fftiCzMah3wk5X94-oiaYaROi1ohtM_mEuWXW_87Jo9Qp3aCJR213Y4jMcN6SlPXc2dlQYDBVPmfwkE0_wAJaAljLUjTecL49Jzli40jmfV1V)**
 
-### 3.2. Patrón DAO
+## 2. Patrón DAO
 
 Dado lo anterior, el patrón DAO propone separar por completo la lógica de negocio de la lógica para acceder a los datos, de esta forma, el DAO proporcionará los métodos necesarios para insertar, actualizar, borrar y consultar la información; por otra parte, la capa de negocio solo se preocupa por lógica de negocio y utiliza el DAO para interactuar con la fuente de datos.
 
 **![](https://jossjack.files.wordpress.com/2014/06/dao.jpg)**
 
-### 3.3. Patrón Mapper
+## 3. Patrón Mapper
 
 Patrón Mapper, que toma como argumento algún tipo de fuente de datos "en bruto" (por ejemplo, un ADO.NET DataReader o DataSet) y asigna los campos a propiedades en un objeto de negocio / dominio.
 
 **![](https://martinfowler.com/eaaCatalog/databaseMapperSketch.gif)**
 
-###  Paso a paso hacia programación en 3 Capas
+## 4. Paso a paso hacia programación en 3 Capas
