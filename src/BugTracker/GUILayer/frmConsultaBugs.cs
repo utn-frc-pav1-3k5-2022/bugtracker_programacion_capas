@@ -14,14 +14,15 @@ namespace BugTracker.GUILayer
 {
     public partial class frmConsultaBugs : Form
     {
-        private BugService bugService;
-        private BugService estadoService;
+        private BugService bugService = new BugService();
+        private IEstadoService oEstadoService = new EstadoService();
+        private CriticidadService oCriticidadService = new CriticidadService();
+
         public frmConsultaBugs()
         {
             InitializeComponent();
             // Inicializamos la grilla de bugs
             InitializeDataGridView();
-            bugService = new BugService();
 
         }
 
@@ -29,7 +30,8 @@ namespace BugTracker.GUILayer
         {
 
             //LLenar combos y limpiar grid
-            //LlenarCombo(cboEstados, oEstadoService.ObtenerEstados(), "nombre", "id_estado");
+
+            LlenarCombo(cboEstados, oEstadoService.ObtenerEstados(), "Nombre", "IdEstado");
 
             LlenarCombo(cboPrioridades, DataManager.GetInstance().ConsultaSQL("Select * from Prioridades"), "nombre", "id_prioridad");
 
@@ -129,7 +131,7 @@ namespace BugTracker.GUILayer
 
             // Definimos el nombre de la columnas y el DataPropertyName que se asocia a DataSource
             dgvBugs.Columns[0].Name = "ID";
-            dgvBugs.Columns[0].DataPropertyName = "id_bug";
+            dgvBugs.Columns[0].DataPropertyName = "IdBug";
             // Definimos el ancho de la columna.
             dgvBugs.Columns[0].Width = 50;
 

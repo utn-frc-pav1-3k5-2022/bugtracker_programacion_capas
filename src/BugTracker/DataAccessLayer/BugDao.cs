@@ -46,12 +46,13 @@ namespace BugTracker.DataAccessLayer
                                        "  INNER JOIN Estados as estado ON estado.id_estado = bug.id_estado",
                                        " WHERE id_bug = " + idBug.ToString());
 
-            return MappingBug(DataManager.GetInstance().ConsultaSQL(strSql).Rows[0]);
+            DataTable dt = DataManager.GetInstance().ConsultaSQL(strSql);
+            return MappingBug(dt.Rows[0]);
         }
 
         public IList<Bug> GetBugByFilters(Dictionary<string, object> parametros)
         {
-            List<Bug> listadoBugs = new List<Bug>();
+            
 
             var strSql = String.Concat("SELECT bug.id_bug, ",
                                       "        bug.titulo,",
@@ -92,9 +93,11 @@ namespace BugTracker.DataAccessLayer
                 strSql += " AND (id_usuario_asignado=@idUsuarioAsignado) ";
             strSql += " ORDER BY bug.fecha_alta DESC";
 
-            var resultadoConsulta = (DataRowCollection) DataManager.GetInstance().ConsultaSQL(strSql, parametros).Rows;
+            List<Bug> listadoBugs = new List<Bug>();
 
-            foreach (DataRow row in resultadoConsulta)
+            DataTable dt = DataManager.GetInstance().ConsultaSQL(strSql, parametros);
+
+            foreach (DataRow row in dt.Rows)
             {
                 listadoBugs.Add(MappingBug(row));
             }
